@@ -2,12 +2,12 @@
 module Secured
   extend ActiveSupport::Concern
 
-  # included do
-  #   before_action :authenticate_request!
-  # end
-
   def current_user
-    @auth_payload
+    User.where(auth0_id: @auth_payload['sub']).first
+  end
+
+  def current_auth0_id
+    @auth_payload['sub']
   end
 
   def authenticate_request!

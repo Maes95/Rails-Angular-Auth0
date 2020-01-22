@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,12 +10,12 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class ProfileComponent implements OnInit {
   profileJson: string = null;
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, private userService:UserService) { }
 
   ngOnInit() {
-    this.auth.userProfile$.subscribe(
-      profile => this.profileJson = JSON.stringify(profile, null, 2)
-    );
+    this.userService.me().subscribe((user)=>{
+      this.profileJson = JSON.stringify(user, null, 2)
+    })
   }
 
 }

@@ -5,7 +5,7 @@ module Api
         before_action :require_login!, only:[:private]
 
         def private
-            render json: current_user
+            render json: { message: 'Private things' }
         end
 
         def public

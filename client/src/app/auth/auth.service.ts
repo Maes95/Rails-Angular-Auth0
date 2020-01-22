@@ -5,6 +5,8 @@ import * as config from '../../../auth_config.json';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
 import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service.js';
+import { User } from '../models/User.js';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +41,7 @@ export class AuthService {
   // Create a local property for login status
   loggedIn: boolean = null;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: UserService) {
     // On initial load, check authentication state with authorization server
     // Set up local auth streams if user is already authenticated
     this.localAuthSetup();
@@ -117,8 +119,27 @@ export class AuthService {
       // Response will be an array of user and login status
       authComplete$.subscribe(([user, loggedIn]) => {
         // Redirect to target route after callback processing
-        this.router.navigate([targetRoute]);
+        this.userService.exists().subscribe(
+          exists => {
+            this.signUpIfNotExist(user, exists,()=>{
+              this.router.navigate([targetRoute])
+            })
+          }
+        )
+        
       });
+    }
+  }
+
+  private signUpIfNotExist(user_data:any, exists:boolean, callback:Function){
+    if (exists){
+      callback()
+    }else{
+      let user:User = {
+        name: user_data['nickname'],
+        email: user_data['email']
+      };
+      this.userService.create(user).subscribe(()=> callback());
     }
   }
 

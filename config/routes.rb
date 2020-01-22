@@ -8,8 +8,5 @@ Rails.application.routes.draw do
     get 'users/exists' => 'users#exists'
     get 'users/me' => 'users#me'
     resources :users
-    
-    get 'public' => 'sample#public'
-    get 'private' => 'sample#private'
   end
 end

@@ -14,8 +14,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { HomeContentComponent } from './components/home-content/home-content.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import { ExternalApiComponent } from './pages/external-api/external-api.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UsersComponent } from './pages/users/users.component';
 
 export function hljsLanguages() {
   return [{ name: 'json', func: json }];
@@ -31,7 +31,7 @@ export function hljsLanguages() {
     HeroComponent,
     HomeContentComponent,
     LoadingComponent,
-    ExternalApiComponent
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

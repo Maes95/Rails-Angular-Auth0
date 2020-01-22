@@ -14,7 +14,7 @@ export class UserService {
     return this.http.get<boolean>("/api/users/exists");
   }
 
-  index(id:number):Observable<User[]> {
+  index():Observable<User[]> {
     return this.http.get<User[]>(`/api/users/`);
   }
 

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './auth/auth.guard';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { ExternalApiComponent } from './pages/external-api/external-api.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './auth/interceptor.service';
+
+// Components
+import { ProfileComponent } from './pages/profile/profile.component';
+import { HomeComponent } from './pages/home/home.component';
+import { UsersComponent } from './pages/users/users.component';
 
 const routes: Routes = [
   {
@@ -14,8 +16,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'external-api',
-    component: ExternalApiComponent,
+    path: 'users',
+    component: UsersComponent,
     canActivate: [AuthGuard]
   },
   {

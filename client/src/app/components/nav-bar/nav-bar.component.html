@@ -25,7 +25,7 @@
             <a routerLink="/" class="nav-link">Home</a>
           </li>
           <li class="nav-item" *ngIf="auth.loggedIn">
-            <a routerLink="external-api" class="nav-link">External API</a>
+            <a routerLink="users" class="nav-link">View all users</a>
           </li>
         </ul>
 
@@ -55,7 +55,7 @@
                 [src]="profile.picture"
                 alt="Profile picture"
                 class="nav-user-profile rounded-circle"
-                style="width: 75px"
+                style="width: 50px"
               />
             </a>
             <div class="dropdown-menu dropdown-menu-left" ngbDropdownMenu>

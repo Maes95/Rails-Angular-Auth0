@@ -1,6 +1,6 @@
 # Rails-Angular-Auth0
 
-This example shows how to secure your Rails API using RS256 signed, Auth0-issued JSON Web Tokens and Angular.
+This example shows how to secure your RailsAPI+Angular using RS256 signed and Auth0-issued JSON Web Tokens.
 
 ## Create a Free Auth0 Account
 

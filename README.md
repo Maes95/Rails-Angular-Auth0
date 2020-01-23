@@ -14,9 +14,9 @@ You need to create an application to get the following enviroment variables:
 - AUTH0_CLIENT_ID
 - AUTH0_AUDIENCE
 
-# Running the Sample Application (Server side)
+# Rails - Running the Sample Application (Server side)
 
-In order to run the example you need to have Ruby 2.3.1 installed.
+In order to run the example you need to have [Ruby 2.3.1](https://www.ruby-lang.org/es/documentation/installation/) installed and [bundle](https://bundler.io/) library.
 
 You also need to set the Domain, and API Audience for your Rails API as environment variables with the following names respectively: `AUTH0_DOMAIN` and `AUTH0_AUDIENCE`.
 
@@ -32,12 +32,14 @@ Once you've set these environment variables, run:
 ```
 $ bundle install
 $ rails db:setup
-$ rails db:migraye
+$ rails db:migrate
 ```
 
 Then `rails s --port 3001` to run server.
 
-# Running the Sample Application (Client side)
+# Angular - Running the Sample Application (Client side)
+
+In order to run the example you need to have [Node 12.14.0](https://nodejs.org/es/download/)
 
 This sample app demonstrates how to call an API using the access token retrieved during authentication. It uses [auth0-spa-js](https://github.com/auth0/auth0-spa-js).
 
@@ -45,7 +47,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Configuration
 
-In the root of the client folder, copy `auth_config.json.example` and rename it to `auth_config.json`. Open the file and replace the values with those from your Auth0 tenant:
+In the root of the client folder, copy `auth_config.json.example` and rename it to `auth_config.json`. Open the file and replace the values with those from your Auth0 config:
 
 ```json
 {
@@ -57,4 +59,4 @@ In the root of the client folder, copy `auth_config.json.example` and rename it 
 
 ## Development server
 
-Run `npm start` (from client folder) for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
+Run `npm start` (from client folder) for a dev angular-server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.

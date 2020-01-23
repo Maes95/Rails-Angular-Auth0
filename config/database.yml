@@ -3,7 +3,7 @@ development:
     encoding: unicode
     pool: 5
     timeout: 5000
-    database: lynx_development
+    database: example_development
   
   # Warning: The database defined as "test" will be erased and
   # re-generated from your development database when you run "rake".
@@ -13,11 +13,11 @@ test:
     encoding: unicode
     pool: 5
     timeout: 5000
-    database: lynx_test
+    database: example_test
 
 production:
     adapter: postgresql
     encoding: unicode
     pool: 5
     timeout: 5000
-    database: lynx_development
+    database: example_production

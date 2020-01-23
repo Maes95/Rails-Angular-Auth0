@@ -27,12 +27,15 @@ Set the environment variables in `.env` to match those in your Auth0 API.
 AUTH0_DOMAIN="myAuth0Domain"
 AUTH0_AUDIENCE=myAPIAudience
 ````
-Once you've set these environment variables, run `bundle install` and then `rails s --port 3001`. You can follow the instructions in the [Full Tutorial](https://auth0.com/docs/quickstart/backend/rails/01-authentication-RS256) to an access token and then call the secured API endpoint.
-__Note:__ Remember that you need to have `./bin` in your path for `rails s` to work.
+Once you've set these environment variables, run:
 
-Shut it down manually with Ctrl-C.
+```
+$ bundle install
+$ rails db:setup
+$ rails db:migraye
+```
 
-__Note:__ If you are using Windows, uncomment the `tzinfo-data` gem in the gemfile.
+Then `rails s --port 3001` to run server.
 
 # Running the Sample Application (Client side)
 
@@ -54,4 +57,4 @@ In the root of the client folder, copy `auth_config.json.example` and rename it 
 
 ## Development server
 
-Run `npm start` for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
+Run `npm start` (from client folder) for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
